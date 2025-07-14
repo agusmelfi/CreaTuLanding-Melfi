@@ -1,21 +1,22 @@
-import {CartWidget} from "./CartWidget";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CartWidget from './CartWidget';
 
-export function NavBar() {
+export default function NavBar(){
   return (
-    <>
-    <nav style={{ background: '#eee', padding: '10px', display: 'flex', justifyContent: 'space-between' }}>
+    <nav style={{ padding: '10px', background: '#eee', display: 'flex', justifyContent: 'space-between' }}>
       <div>
-        <img src="/logo.png" alt="Logo tienda" style={{ height: '40px' }}/>
+        <Link to="/"><img src="/logo.png" alt="Logo" style={{ height: '40px' }} /></Link>
       </div>
 
-      <ul style={{ listStyle: 'none', display: 'flex', gap: '20px', margin: 0 }}>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Productos</a></li>
-        <li><a href="#">Contacto</a></li>
+      <ul style={{ display: 'flex', gap: '15px', listStyle: 'none' }}>
+        <li><Link to="/">Inicio</Link></li>
+        <li><Link to="/category/ropa">Ropa</Link></li>
+        <li><Link to="/category/calzado">Calzado</Link></li>
       </ul>
 
       <CartWidget />
     </nav>
-    </>
   );
 };
+
